@@ -6,7 +6,7 @@ EFA (Elektronische Fahrplanauskunft) is the service used by Germany's regional a
 
 whatEFA handles the connection to EFA to simplify retrieving transit stop departure times.  Given the city and approximate stop name, it looks up the stop and gets the upcoming departures.
 
-An important difference between whatEFA and other EFA parsers is that instead of scraping the HTML from a chosen mobil site, whatEFA plugs directly into the EFA service.  This means it won't break when the format of the scraped page is changed.
+An important difference between whatEFA and other EFA parsers is that instead of scraping the HTML from a chosen mobile site, whatEFA plugs directly into the EFA service.  This means it won't break when the format of the scraped page is changed.
 
 ####Usage
 `GET` whatEFA.php with the following parameters:
