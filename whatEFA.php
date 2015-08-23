@@ -75,8 +75,7 @@ if (isset($getDepartures_data->dm->message) || is_null($getDepartures_data->depa
 $result = array(
     'stopName' => $getDepartures_data->departureList[0]->nameWO,
     'stopLongName' => $getDepartures_data->departureList[0]->stopName,
-    'platforms' => array(),
-    'response' => $getDepartures_data
+    'platforms' => array()
 );
 foreach ($getDepartures_data->departureList as $d) {
     if (!isset($result['platforms'][$d->platform])) {
