@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+	<head>
+		<title>EFA Test</title>
+		<style>
+			html { background: #FAFAFE; }
+			body {
+				width: 1200px;
+				margin: 20px auto;
+				padding: 20px;
+				border: 1px solid #CCC;
+				border-radius: 5px;
+				background: #FFFFFF;
+				font-family: monospace;
+			}
+			hr {
+				display: block;
+				height: 1px;
+				border: 0;
+				border-top: 1px solid #CCC;
+			}
+			.success { color: darkgreen; }
+			.failed { color: darkred; }
+		</style>
+		<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+		<script>
+			$(function() {
+				var _data = {
+					city: 'braunschweig',
+					stop: 'bindestr',
+					limit: 20	
+				};
+				
+				$.ajax({
+					url: 'whatEFA.php',
+					data: _data,
+					error: function(jqXHR) {
+						var text = 'HTTP/1.1 ' + jqXHR.responseJSON.status + ': ' + jqXHR.statusText + ' - ' + jqXHR.responseJSON.message;
+						
+						$('#ajaxStatus').addClass('failed').text(text);
+					},
+					success: function(data) {
+						$('#ajaxStatus').addClass('success').text('Success');
+						$('#ajaxResult').text(JSON.stringify(data, null, 2));
+					}
+				});
+			})
+		</script>
+	</head>
+	<body>
+		<h3>Status: <span id="ajaxStatus">Loading...</span></h3>
+		<hr>
+		<pre id="ajaxResult"></pre>
+	</body>
+</html>
