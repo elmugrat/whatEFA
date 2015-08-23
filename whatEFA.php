@@ -33,7 +33,8 @@ $findStop_params = array(
     'locationServerActive' => 1,
     'outputFormat' => 'json',
     'type_dm' => 'stop',
-    'name_dm' => "$city $stop"
+    'name_dm' => "$city $stop",
+    'limit' => $limit
 );
 
 $findStop_url = $efa . http_build_query($findStop_params);
@@ -67,6 +68,13 @@ $getDepartures_data = json_decode($getDepartures_response);
 if (isset($getDepartures_data->dm->message) || is_null($getDepartures_data->departureList)) {
     halt(404, 'error', 'No departures found');
 }
+
+/*** Force departureList to be an array ***/
+if (!is_array($getDepartures_data->departureList)) {
+    $getDepartures_data->departureList = array($getDepartures_data->departureList->departure);
+}
+
+success($getDepartures_data);
 
 /*** Build Response Data ***/
 $result = array(
