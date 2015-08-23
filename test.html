@@ -25,15 +25,15 @@
 		<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
 		<script>
 			$(function() {
-				var _data = {
-					city: 'braunschweig',
-					stop: 'bindestr',
-					limit: 20	
+				var params = {
+					city: 'hannover',
+					stop: 'hbf',
+					limit: 15
 				};
-				
+
 				$.ajax({
 					url: 'whatEFA.php',
-					data: _data,
+					data: params,
 					error: function(jqXHR) {
 						var text = 'HTTP/1.1 ' + jqXHR.responseJSON.status + ': ' + jqXHR.statusText + ' - ' + jqXHR.responseJSON.message;
 						
