@@ -53,12 +53,9 @@ $getDepartures_params = array(
     'sessionID' => $findStop_data->parameters[1]->value,
     'requestID' => $findStop_data->parameters[0]->value,
     'outputFormat' => 'json',
-    'type_dm' => 'stop',
-    'name_dm' => "$city $stop",
-    'nameState_dm' => 'identified',
     'dmLineSelectionAll' => '1'
 );
-    
+
 $getDepartures_url = $efa . http_build_query($getDepartures_params);
 
 if (!$getDepartures_response = file_get_contents($getDepartures_url)) {
