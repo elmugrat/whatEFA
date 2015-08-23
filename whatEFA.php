@@ -74,8 +74,6 @@ if (!is_array($getDepartures_data->departureList)) {
     $getDepartures_data->departureList = array($getDepartures_data->departureList->departure);
 }
 
-success($getDepartures_data);
-
 /*** Build Response Data ***/
 $result = array(
     'stopName' => $getDepartures_data->departureList[0]->nameWO,
