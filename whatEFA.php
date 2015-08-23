@@ -90,8 +90,14 @@ foreach ($getDepartures_data->departureList as $d) {
     
     $transitLines = &$result['platforms'][$d->platform]['transitLines'];
     
-    if (!isset($transitLines[$d->servingLine->number])) {
-        $transitLines[$d->servingLine->number] = array(
+    if (isset($d->servingLine->trainType)) {
+        $transitLineName = $d->servingLine->trainType . ' ' . $d->servingLine->trainNum;
+    } else {
+        $transitLineName = $d->servingLine->number;
+    }
+    
+    if (!isset($transitLines[$transitLineName])) {
+        $transitLines[$transitLineName] = array(
             'directionTo' => $d->servingLine->direction,
             'directionFrom' => $d->servingLine->directionFrom,
             'type' => $d->servingLine->name,
@@ -99,7 +105,7 @@ foreach ($getDepartures_data->departureList as $d) {
         );
     }
     
-    $departures = &$transitLines[$d->servingLine->number]['departures'];
+    $departures = &$transitLines[$transitLineName]['departures'];
 
     $year = $d->dateTime->year;
     $month = $d->dateTime->month;
