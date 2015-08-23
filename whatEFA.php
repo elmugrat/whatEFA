@@ -80,7 +80,7 @@ $result = array(
 foreach ($getDepartures_data->departureList as $d) {
     if (!isset($result['platforms'][$d->platform])) {
         $result['platforms'][$d->platform] = array(
-            'name' => $d->platformName,
+            'name' => $d->platformName ?: $d->platform,
             'transitLines' => array()
         );
     }
