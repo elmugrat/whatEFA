@@ -38,6 +38,7 @@
 						var text = 'HTTP/1.1 ' + jqXHR.responseJSON.status + ': ' + jqXHR.statusText + ' - ' + jqXHR.responseJSON.message;
 						
 						$('#ajaxStatus').addClass('failed').text(text);
+						$('#ajaxResult').text(JSON.stringify(jqXHR.responseJSON, null, 2));
 					},
 					success: function(data) {
 						$('#ajaxStatus').addClass('success').text('Success');
