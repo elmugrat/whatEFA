@@ -10,7 +10,7 @@ whatEFA handles the connection to EFA to simplify retrieving transit stop depart
 `GET` whatEFA.php with the following parameters:
 
 - `city`: The desired city
-- `stop`: The name of the transit stop (typos and common abbreviations like 'hbf' or 'str' are allowed)
+- `stop`: Transit stop name (typos and common abbreviations like 'hbf' or 'str' are allowed)
 - `limit`: The max number of departures returned (default: 20)
 
 ```javascript
